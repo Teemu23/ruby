@@ -3,7 +3,6 @@ class CreateBreweries < ActiveRecord::Migration
     create_table :breweries do |t|
       t.string :name
       t.integer :year
-
       t.timestamps
     end
   end
