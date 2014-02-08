@@ -7,6 +7,7 @@
       <li> <%= rating %> <%=link_to rating.user.username, rating.user %></li>
   <% end %>
 </ul>
-
+<% if not current_user.nil? %>
 <%= link_to 'create new rating', new_rating_path %>
+<% end %>
 
