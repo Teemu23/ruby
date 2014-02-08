@@ -11,7 +11,8 @@
  *= require_self
  *= require_tree .
  */
- .navibar {
+
+.navibar {
     padding: 10px;
     background: #EFEFEF;
 }
