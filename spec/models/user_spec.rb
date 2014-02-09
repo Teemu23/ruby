@@ -12,7 +12,7 @@ describe User do
       expect(user.favorite_style).to eq(nil)
   	end
   end
-  
+
   it "has the username set correctly" do
     user = User.new username:"Pekka"
 
@@ -27,7 +27,7 @@ describe User do
   end
 
   it "with too short password" do 
-  	user = User.create username:"Pekka", password:"1A", password_confirmation:"1As" 
+  	user = User.create username:"Pekka", password:"1A", password_confirmation:"1A" 
 
   	expect(user).not_to be_valid
   	expect(User.count).to eq(0)

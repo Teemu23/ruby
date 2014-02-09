@@ -1,10 +1,16 @@
 language: ruby
-
 rvm:
- - 2.0.0
-
+- 2.0.0
 script:
- - bundle exec rake db:migrate --trace
- - RAILS_ENV=test bundle exec rake db:migrate --trace
- - bundle exec rake db:test:prepare
- - bundle exec rspec -fd spec/
+- bundle exec rake db:migrate --trace
+- RAILS_ENV=test bundle exec rake db:migrate --trace
+- bundle exec rake db:test:prepare
+- bundle exec rspec -fd spec/
+deploy:
+  provider: heroku
+  api_key:
+    secure: EtJYxeFLNRlC/EIf17zsCziRmUpaRghsLJGECl+JEWvTd93yQEH+8Zomg8xAwrOA+EdHBC3HClSANb7qIfHzXEbCoNITz8flL1wcPGKcesSG6wcgwbW9g7SInxBfVb8xp3riU4AMJJOvCxBlH9lH0Csoq8asUuP91WsB2BbL1gs=
+  run: "rake db:migrate"
+  app: radiant-savannah-5124
+  on:
+    repo: Teemu23/ruby

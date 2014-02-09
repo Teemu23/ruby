@@ -4,12 +4,14 @@ include OwnTestHelper
 
 describe "Beers page" do
   let!(:brewery) { FactoryGirl.create :brewery, name:"Koff" }
+  let!(:user) {FactoryGirl.create :user }
 
   before :each do
     sign_in(username:"Pekka", password:"Foobar1")
   end
 
   it "can create new beer if name is valid" do
+    sign_in(username:"Pekka", password:"Foobar1")
     visit new_beer_path
 
     select('Weizen', from:'beer[style]')
@@ -22,6 +24,8 @@ describe "Beers page" do
   end 
 
   it "should not create new beer with incorrect name" do
+    sign_in(username:"Pekka", password:"Foobar1")
+
     visit new_beer_path
 
     select('Weizen', from:'beer[style]')

@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   include RatingAverage
 
+
   validates :username, uniqueness: true,
                        length: { in: 3..15 }
 
@@ -24,4 +25,5 @@ class User < ActiveRecord::Base
 
   def favorite_style
   end
+
 end
