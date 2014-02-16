@@ -2,7 +2,8 @@ require 'spec_helper'
 
 describe "Ratings page" do
 	let!(:brewery) { FactoryGirl.create :brewery, name:"Koff" }
-  	let!(:beer1) { FactoryGirl.create :beer, name:"Iso 3", brewery:brewery }
+  let!(:style) { FactoryGirl.create :style, style:"Ale", description:"asd" }
+  	let!(:beer1) { FactoryGirl.create :beer, name:"Iso 3", brewery:brewery, style:style }
   	let!(:user) {FactoryGirl.create :user }
   	let!(:rating) { FactoryGirl.create :rating, score:"15", beer:beer1, user:user }
   	
@@ -13,8 +14,5 @@ describe "Ratings page" do
   		expect(page).to have_content "Iso 3"
   	end
 
-  	it "deleting own rating works" do
-  		
-  	end
 end
 	

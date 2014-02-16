@@ -4,7 +4,9 @@ include OwnTestHelper
 
 describe "Users page" do
   let!(:brewery) { FactoryGirl.create :brewery, name:"Koff" }
-  let!(:beer1) { FactoryGirl.create :beer, name:"Iso 3", brewery:brewery }
+
+  let!(:style) { FactoryGirl.create :style, style:"Ale", description:"asd" }
+  let!(:beer1) { FactoryGirl.create :beer, name:"Iso 3", brewery:brewery, style:style }
   let!(:user) {FactoryGirl.create :user }
   let!(:user2) {FactoryGirl.create :user2}
   let!(:rating) {FactoryGirl.create :rating, score:"17", beer:beer1, user:user2 }

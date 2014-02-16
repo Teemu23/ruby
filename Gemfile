@@ -19,7 +19,7 @@ group :test do
   gem 'factory_girl_rails'
   gem 'capybara'
   gem 'launchy'
-
+  gem 'webmock'
 end
 
 gem 'simplecov', require: false
@@ -32,4 +32,6 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'byebug', group: [:development, :test]
 gem 'bcrypt-ruby', '~> 3.1.2'
+gem 'httparty'
+gem "rails-settings-cached", "0.3.1"
 
