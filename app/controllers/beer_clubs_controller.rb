@@ -14,7 +14,6 @@ class BeerClubsController < ApplicationController
   def show
     @membership = Membership.new
     @membership.beer_club = @beer_club
-    @membership.user = current_user
   end
 
   # GET /beer_clubs/new

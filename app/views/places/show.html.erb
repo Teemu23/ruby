@@ -1,6 +1,7 @@
-<p>
-  <strong>Name:</strong>
-  <%= @places %>
-</p>
+<h2><%= @place.name %></h2>
 
-<%= link_to 'back', places_path %>
+<p><%= @place.street %></p>
+
+<p><%= @place.zip %> <%= @place.city %></p>
+
+<iframe height=300 width="400" src=<%= @place.blogmap %>> </iframe>

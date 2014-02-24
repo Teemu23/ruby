@@ -22,16 +22,24 @@ class User < ActiveRecord::Base
     return nil if ratings.empty?
     ratings.order(score: :desc).limit(1).first.beer
   end
+
   def favorite_brewery
     return nil if ratings.empty?
     brewery_ratings = rated_breweries.inject([]) { |set, brewery| set << [brewery, brewery_average(brewery) ] }
     brewery_ratings.sort_by{ |r| r.last }.last.first
   end
-def favorite_style
+
+  def favorite_style
     return nil if ratings.empty?
     style_ratings = rated_styles.inject([]) { |set, style| set << [style, style_average(style) ] }
     style_ratings.sort_by{ |r| r.last }.last.first
   end
+
+  def self.top(n)
+    sorted_by_ratings_count = User.all.sort_by { |u| -(u.ratings.count||0) }
+    sorted_by_ratings_count.take(n)
+  end
+
 
   #private
 

@@ -20,6 +20,12 @@ group :test do
   gem 'capybara'
   gem 'launchy'
   gem 'webmock'
+  gem 'selenium-webdriver' 
+end
+
+gem 'bootstrap-sass'
+group :development do
+  gem 'rails_layout'
 end
 
 gem 'simplecov', require: false
@@ -34,4 +40,6 @@ gem 'byebug', group: [:development, :test]
 gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'httparty'
 gem "rails-settings-cached", "0.3.1"
+gem 'jquery-turbolinks'
+gem 'database_cleaner', '< 1.1.0'
 

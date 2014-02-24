@@ -1,13 +1,61 @@
-<h2>List of ratings</h2>
+<h1>Rating statistics</h2>
+<h2>Recent ratings</h2>
 
-<p>Number of ratings <%= @ratings.count %></p>
+<table class="table table-hover">
 
-<ul>
-  <% @ratings.each do |rating| %>
-      <li> <%= rating %> <%=link_to rating.user.username, rating.user %></li>
-  <% end %>
-</ul>
-<% if not current_user.nil? %>
-<%= link_to 'create new rating', new_rating_path %>
-<% end %>
+  <tbody>
+    <% @last_5_ratings.each do |rating| %>
+      <tr>
+        <li><%= rating %> <%=link_to rating.user.username, rating.user %></li>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
+<h2>Best breweries</h2>
+<table class="table table-hover">
+  <tbody>
+    <% @breweries_top = Brewery.top 3 %>
+      <tr>
+        <li><%= @breweries_top[0].name + ' average: '+ @breweries_top[0].average_rating.to_s %> </li>
+        <li><%= @breweries_top[1].name + ' average: '+ @breweries_top[1].average_rating.to_s  %> </li>
+        <li><%= @breweries_top[2].name + ' average: '+ @breweries_top[2].average_rating.to_s  %> </li>
+      </tr> 
+  </tbody>
+</table>
+
+<h2>Best beers</h2>
+<table class="table table-hover">
+  <tbody>
+    <% @beers_top = Beer.top 3 %>
+      <tr>
+        <li><%= @beers_top[0].name + ' average: '+ @beers_top[0].average_rating.to_s %> </li>
+        <li><%= @beers_top[1].name + ' average: '+ @beers_top[1].average_rating.to_s  %> </li>
+        <li><%= @beers_top[2].name + ' average: '+ @beers_top[2].average_rating.to_s  %> </li>
+      </tr> 
+  </tbody>
+</table>
+
+<h2>Best styles</h2>
+<table class="table table-hover">
+  <tbody>
+    <% @styles_top = Style.top 3 %>
+      <tr>
+        <li><%= @styles_top[0].style + ' average: '+ @styles_top[0].average_rating.to_s %> </li>
+        <li><%= @styles_top[1].style + ' average: '+ @styles_top[1].average_rating.to_s  %> </li>
+        <li><%= @styles_top[2].style + ' average: '+ @styles_top[2].average_rating.to_s  %> </li>
+      </tr> 
+  </tbody>
+</table>
+
+<h2>Best users</h2>
+<table class="table table-hover">
+  <tbody>
+    <% @users_top = User.top 3 %>
+      <tr>
+        <li><%= @users_top[0].username + ' Ratings: '+ @users_top[0].ratings.count.to_s %> </li>
+        <li><%= @users_top[1].username + ' Ratings: '+ @users_top[1].ratings.count.to_s  %> </li>
+        <li><%= @users_top[2].username + ' Ratings: '+ @users_top[2].ratings.count.to_s  %> </li>
+      </tr> 
+  </tbody>
+</table>
